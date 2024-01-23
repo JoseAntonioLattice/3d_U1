@@ -1,0 +1,9 @@
+&input_parameters
+L = 5
+tau_Q = 256
+Ti = 0.5
+N_thermalization = 100
+N_measurements = 100
+path = '/home/jose/Documents/doctorado/3d_U1_gauge_outeq/data/'
+algorithm = 3
+/

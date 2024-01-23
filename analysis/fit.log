@@ -1,0 +1,355 @@
+
+
+*******************************************************************************
+Thu Jan  4 10:40:43 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Thu Jan  4 10:41:00 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Thu Jan  4 10:41:09 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 6.6863747875e+05   0.00e+00  1.59e+02    1.000000e+00   1.000000e+00
+   7 9.5606531716e+00  -2.89e-03  1.59e-03    1.778292e+00   6.593862e-01
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 9.56065
+rel. change during last iteration : -2.89169e-08
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.26232
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.59344
+p-value of the Chisq distribution (FIT_P)              : 0.144415
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.77829          +/- 0.006228     (0.3502%)
+b               = 0.659386         +/- 0.001075     (0.163%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b               0.937  1.000 
+
+
+*******************************************************************************
+Thu Jan  4 15:57:59 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Thu Jan  4 15:58:19 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Thu Jan  4 15:58:22 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Thu Jan  4 16:01:57 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Thu Jan  4 16:02:07 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f(x)
+	f(x) = a*x**(-b)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b            
+   0 9.5606531716e+00   0.00e+00  6.12e+02    1.778292e+00   6.593862e-01
+   1 9.5606531716e+00   0.00e+00  6.12e+05    1.778292e+00   6.593862e-01
+
+After 1 iterations the fit converged.
+final sum of squares of residuals : 9.56065
+rel. change during last iteration : 0
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.26232
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.59344
+p-value of the Chisq distribution (FIT_P)              : 0.144415
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = 1.77829          +/- 0.006228     (0.3502%)
+b               = 0.659386         +/- 0.001075     (0.163%)
+
+correlation matrix of the fit parameters:
+                a      b      
+a               1.000 
+b               0.937  1.000 
+
+
+*******************************************************************************
+Thu Jan  4 20:47:17 2024
+
+
+FIT:    data read from 'L=20_outeq_glauber.dat' u 1:3:4
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f2(x)
+	f2(x) = a2*x**(-b2)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a2            b2           
+   0 8.1273847139e+05   0.00e+00  1.42e+02    1.000000e+00   1.000000e+00
+   7 1.3763059309e+01  -2.26e-04  1.42e-03    2.152803e+00   6.667248e-01
+
+After 7 iterations the fit converged.
+final sum of squares of residuals : 13.7631
+rel. change during last iteration : -2.25557e-09
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.51454
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.29384
+p-value of the Chisq distribution (FIT_P)              : 0.0323979
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a2              = 2.1528           +/- 0.008642     (0.4014%)
+b2              = 0.666725         +/- 0.001225     (0.1838%)
+
+correlation matrix of the fit parameters:
+                a2     b2     
+a2              1.000 
+b2              0.939  1.000 
+
+
+*******************************************************************************
+Wed Jan 17 22:38:20 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:5:6
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f1
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Wed Jan 17 22:38:24 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:5:6
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f1
+BREAK: Need via and either parameter list or file
+
+*******************************************************************************
+Wed Jan 17 22:39:05 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:5:6
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f1
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Wed Jan 17 22:39:13 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:5:6
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f1(x)
+	f1(x)=a1*x**b1
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 7.7194823588e+14   0.00e+00  4.77e+07    1.000000e+00   1.000000e+00
+  16 2.9591295572e+01  -7.89e-01  4.77e-04    1.397786e-01  -6.533857e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 29.5913
+rel. change during last iteration : -7.88503e-06
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22078
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.93188
+p-value of the Chisq distribution (FIT_P)              : 4.70017e-05
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a1              = 0.139779         +/- 0.002898     (2.073%)
+b1              = -0.653386        +/- 0.005952     (0.9109%)
+
+correlation matrix of the fit parameters:
+                a1     b1     
+a1              1.000 
+b1             -0.935  1.000 
+
+
+*******************************************************************************
+Wed Jan 17 22:40:20 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:5:6 yerrors
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f1
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Wed Jan 17 22:40:33 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:5:6 yerrors
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f1(x)
+	f1(x)=a1*x**b1
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 2.9591295572e+01   0.00e+00  1.87e+02    1.397786e-01  -6.533857e-01
+   1 2.9591295290e+01  -9.52e-04  1.87e+01    1.397786e-01  -6.533859e-01
+
+After 1 iterations the fit converged.
+final sum of squares of residuals : 29.5913
+rel. change during last iteration : -9.52365e-09
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22078
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.93188
+p-value of the Chisq distribution (FIT_P)              : 4.70017e-05
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a1              = 0.139779         +/- 0.002898     (2.073%)
+b1              = -0.653386        +/- 0.005952     (0.9109%)
+
+correlation matrix of the fit parameters:
+                a1     b1     
+a1              1.000 
+b1             -0.935  1.000 
+
+
+*******************************************************************************
+Wed Jan 17 22:41:00 2024
+
+
+FIT:    data read from 'L=20_outeq.dat' u 1:5:6 yerrors
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f1(x)
+	f1(x)=a1*x**b1
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a1            b1           
+   0 7.7194823588e+14   0.00e+00  4.77e+07    1.000000e+00   1.000000e+00
+  16 2.9591295572e+01  -7.89e-01  4.77e-04    1.397786e-01  -6.533857e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 29.5913
+rel. change during last iteration : -7.88503e-06
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.22078
+variance of residuals (reduced chisquare) = WSSR/ndf   : 4.93188
+p-value of the Chisq distribution (FIT_P)              : 4.70017e-05
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a1              = 0.139779         +/- 0.002898     (2.073%)
+b1              = -0.653386        +/- 0.005952     (0.9109%)
+
+correlation matrix of the fit parameters:
+                a1     b1     
+a1              1.000 
+b1             -0.935  1.000 
+
+
+*******************************************************************************
+Wed Jan 17 22:42:07 2024
+
+
+FIT:    data read from 'L=20_outeq_glauber.dat' u 1:5:6 yerrors
+        format = x:z:s
+        #datapoints = 8
+function used for fitting: f2(x)
+	f2(x)=a2*x**b2
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a2            b2           
+   0 8.0651525347e+14   0.00e+00  4.91e+07    1.000000e+00   1.000000e+00
+  16 3.3569350522e+01  -3.35e-04  4.91e+01    1.672596e-01  -6.448040e-01
+
+After 16 iterations the fit converged.
+final sum of squares of residuals : 33.5694
+rel. change during last iteration : -3.34536e-09
+
+degrees of freedom    (FIT_NDF)                        : 6
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 2.36535
+variance of residuals (reduced chisquare) = WSSR/ndf   : 5.59489
+p-value of the Chisq distribution (FIT_P)              : 8.14593e-06
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a2              = 0.16726          +/- 0.003317     (1.983%)
+b2              = -0.644804        +/- 0.00567      (0.8793%)
+
+correlation matrix of the fit parameters:
+                a2     b2     
+a2              1.000 
+b2             -0.935  1.000 
