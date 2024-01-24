@@ -4,12 +4,17 @@ subroutine read_input()
 
     implicit none
 
+    character(100) :: parameters_file
 
     Namelist /input_parameters/  L, tau_Q, Ti, N_thermalization, N_measurements, path, algorithm
 
-    open(unit = 666, file = 'input_parameters.par', status = 'old')
+    read(*,*) parameters_file
+
+    open(unit = 666, file = parameters_file, status = 'old')
     read(unit = 666, nml = input_parameters)
     close(666)
+
+    write(*, nml = input_parameters)
 
 
 

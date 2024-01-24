@@ -45,7 +45,7 @@ module dynamics_mod
 
     subroutine cold_start(phi)
 
-        real(dp), dimension(:,:,:,:), dimension(inout) :: phi
+        real(dp), dimension(:,:,:,:), intent(inout) :: phi
 
             phi = 0.0_dp
     end subroutine cold_start

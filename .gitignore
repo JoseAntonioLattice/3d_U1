@@ -1,4 +1,9 @@
 data
 
+*.sh
+
+*.exe
+*.out
+
 *.mod
 *.o
