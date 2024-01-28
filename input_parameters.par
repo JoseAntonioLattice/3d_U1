@@ -1,9 +1,9 @@
 &input_parameters
 L = 3       ! Length of cubic lattice
-tau_Q = 8   ! Inverse cooling rate
+tau_Q = 3   ! Inverse cooling rate
 Ti = 0.5    ! Transition temperature
 N_thermalization = 100 ! Number of thermalization sweeps
 N_measurements = 100   ! Number of measurements
-path = '/home/estudiante/Documents/doctorado/3dU1/data/'
+path = '/home/jose/Documents/doctorado/3d_U1_gauge_outeq/data/'
 algorithm = 1 ! 1: Metropolis, 2: Glauber, 3 : Heatbath
 /

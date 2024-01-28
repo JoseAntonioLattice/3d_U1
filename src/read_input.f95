@@ -10,7 +10,7 @@ subroutine read_input()
 
     read(*,*) parameters_file
 
-    open(unit = 666, file = parameters_file, status = 'old')
+    open(unit = 666, file = trim(parameters_file), status = 'old')
     read(unit = 666, nml = input_parameters)
     close(666)
 
