@@ -1,0 +1,40 @@
+FC = gfortran
+TARGET = main
+SRC = src
+BIN = bin
+SRCMOD = mods
+SOURCE = $(wildcard $(SRCMOD)/subs2.f95 $(SRC)/subs1.f95 $(SRC)/main.f95)
+OBJECT = $(patsubst %,$(BIN)/%, $(notdir $(SOURCE:.f95=.o)))
+FFLAGS = -Wall -Wextra -std=f2008 -J$(BIN) -I$(BIN)
+RED = \033[1;31m
+GREEN = \033[1;32m
+BLUE = \033[1;34m
+YELLOW = \033[1;33m
+NC = \033[1;0m
+
+$(BIN)/$(TARGET) : $(OBJECT)
+	@echo "$(RED)Linking...$(NC)"
+	$(FC) -o $@ $^
+	@echo "$(BLUE)Finished.$(NC)"
+
+$(BIN)/%.o : $(SRC)/%.f95
+	@echo "$(GREEN)Compiling...$(NC)"
+	$(FC) $(FFLAGS) -c $< -o $@
+
+$(BIN)/%.o : $(SRCMOD)/%.f95
+	@echo "$(GREEN)Compiling...$(NC)"
+	$(FC) $(FFLAGS) -c $< -o $@
+
+
+.PHONY : help run clean
+
+run :
+	@echo "$(YELLOW)Running...$(NC)"
+	$(BIN)/$(TARGET)
+
+help :
+	@echo "src: $(SOURCE)"
+	@echo "obj: $(OBJECT)"
+
+clean :
+	rm -f $(OBJECT) $(BIN)/$(TARGET)
