@@ -20,78 +20,88 @@ program test
   character(*), parameter :: ext = '.dat'
 
   type(observable) :: energy, magnetization
-  integer(i4) :: i, counter, n_files, n_data, ci, cf
+  integer(i4) :: i,j, counter, n_files, n_data, ci, cf
 
   integer, allocatable, dimension(:) :: counter_array
 
   real(dp), allocatable :: obs(:,:)
 
   logical :: file_exists
+  real(dp) :: r(1000),avr_r, err_r
 
 
-  call generate_seed()
+  do j = 1, 1000
+    !call random_seed()
+    !call random_init(.false.,.true.)
+    do i = 1, size(r)
+      call random_number(r)
+    end do
 
-  !create some files
-  n_files = 5!irand(5,15)
-  call create_files(filename,ext,n_files)
-  do i = 1,n_files
-    n_data = 1000!irand(10,20)
-    filepath = trim(filename)//"_"//trim(int2str(i))//trim(ext)
-    call write_data(trim(filepath),n_data)
+    call std_err(r,avr_r,err_r)
+    if(mod(j,10) == 0)print*, avr_r, err_r
   end do
-
-  !count number of files
-  n_files = 0
-  do
-    n_files = n_files + 1
-    filepath = trim(filename)//"_"//trim(int2str(n_files))//ext
-    inquire( file = filepath, exist = file_exists)
-    if( file_exists .eqv. .false.) exit
-  end do
-  n_files = n_files - 1
-
-
-  !Read number of columns in each file
-  allocate(counter_array(n_files))
-  do i = 1, n_files
-    filepath = trim(filename)//"_"//trim(int2str(i))//ext
-    counter_array(i) = rows(trim(filepath))
-  end do
-
-
-  counter = sum(counter_array)
-
-  allocate(energy%array(counter),magnetization%array(counter), obs(2,counter))
-
-  obs = transpose(reshape([energy%array,magnetization%array],[counter,2]))
-
-  !OPEN THE FILES AND READ THE CONTENT
-  do i = 1, n_files
-    filepath = trim(filename)//"_"//trim(int2str(i))//ext
-    if (i == 1)then
-      ci = 1
-      cf = counter_array(i)
-    else
-      ci = sum(counter_array(1:i-1)) + 1
-      cf = sum(counter_array(1:i))
-    end if
-      !print*, i, ci, cf
-      call get_observables(trim(filepath), obs(:,ci:cf))
-  end do
-  energy%array = obs(1,:)
-  magnetization%array = obs(2,:)
-
-  !DO STATISTICS
-  call max_jackknife_error(energy%array,energy%average,energy%error,bins)
-  print*, 'Max jackknife error',energy%error, 'with',bins, 'bins'
-  call std_err(energy%array,energy%average,energy%error)
-  print*, "Standard error", energy%average, energy%error
-
-  call max_jackknife_error(magnetization%array,magnetization%average,magnetization%error,bins)
-  print*, 'Max jackknife error',magnetization%error, 'with',bins, 'bins'
-  call std_err(magnetization%array,magnetization%average,magnetization%error)
-  print*, "Standard error", magnetization%average, magnetization%error
-
+!  !create some files
+!  n_files = 5!irand(5,15)
+!  call create_files(filename,ext,n_files)
+!  do i = 1,n_files
+!    n_data = 100!irand(10,20)
+!    filepath = trim(filename)//"_"//trim(int2str(i))//trim(ext)
+!    call write_data(trim(filepath),n_data)
+!  end do
+!
+!  !count number of files
+!  n_files = 0
+!  do
+!    n_files = n_files + 1
+!    filepath = trim(filename)//"_"//trim(int2str(n_files))//ext
+!    inquire( file = filepath, exist = file_exists)
+!    if( file_exists .eqv. .false.) exit
+!  end do
+!  n_files = n_files - 1
+!
+!
+!  !Read number of columns in each file
+!  allocate(counter_array(n_files))
+!  do i = 1, n_files
+!    filepath = trim(filename)//"_"//trim(int2str(i))//ext
+!    counter_array(i) = rows(trim(filepath))
+!  end do
+!
+!
+!  counter = sum(counter_array)
+!
+!  allocate(energy%array(counter),magnetization%array(counter), obs(2,counter))
+!
+!  obs = transpose(reshape([energy%array,magnetization%array],[counter,2]))
+!
+!  !OPEN THE FILES AND READ THE CONTENT
+!  do i = 1, n_files
+!    filepath = trim(filename)//"_"//trim(int2str(i))//ext
+!    if (i == 1)then
+!      ci = 1
+!      cf = counter_array(i)
+!    else
+!      ci = sum(counter_array(1:i-1)) + 1
+!      cf = sum(counter_array(1:i))
+!    end if
+!      !print*, i, ci, cf
+!      call get_observables(trim(filepath), obs(:,ci:cf))
+!  end do
+!  energy%array = obs(1,:)
+!  magnetization%array = obs(2,:)
+!
+!  !DO STATISTICS
+!  !call max_jackknife_error(energy%array,energy%average,energy%error,bins)
+!  !print*, 'Max jackknife error',energy%error, 'with',bins, 'bins'
+!  !call std_err(energy%array,energy%average,energy%error)
+!  !print*, "Standard error", energy%average, energy%error
+!
+!  call max_jackknife_error_2(magnetization%array,magnetization%average,magnetization%error,bins)
+!  print*, 'Average: Max jackknife error',magnetization%average, 'with',bins, 'bins'
+!  print*, 'Max jackknife error',magnetization%error, 'with',bins, 'bins'
+!  call std_err(magnetization%array,magnetization%average,magnetization%error)
+!  print*, "Standard error", magnetization%average, magnetization%error
+!
 
 
   contains
@@ -157,10 +167,12 @@ program test
     integer(i4), intent(in) :: n
     integer(i4) :: un
     integer(i4) :: i
+    real(dp) :: r
 
+    call random_number(r)
     open(newunit = un, file = trim(filename), status = 'old', action = 'write')
     do i = 1, n
-      write(un,*) drand(10.0_dp,20.0_dp), drand(80.0_dp,100.0_dp)
+      write(un,*) r,r!drand(0.0_dp,1.0_dp), drand(0.0_dp,1.0_dp)
     end do
     close(un)
 
