@@ -1,6 +1,6 @@
 module dynamics_mod
 
-    use precision_mod
+    use iso_fortran_env, only : dp => real64, i4 => real32
     implicit none
 
     private
@@ -14,7 +14,7 @@ module dynamics_mod
         integer, intent(in) :: N_thermalization
         real(dp) :: temperature
 
-        integer :: i_sweeps
+        integer(i4) :: i_sweeps
 
             if(temperature > 0.5_dp)then
                 call hot_start(phi)
@@ -58,12 +58,12 @@ module dynamics_mod
 
         real(dp), dimension(:,:,:,:), intent(inout) :: phi
         real(dp), dimension(-tau_Q:tau_Q), intent(in) :: temperature
-        integer, intent(in) :: N_measurements, N_thermalization
+        integer(i4), intent(in) :: N_measurements, N_thermalization
 
         character(100) :: L_directory, tau_Q_directory, filepath
         character(20)  :: algorithm_id
 
-        integer :: i_tau,i
+        integer(i4) :: i_tau,i
 
         L_directory = trim(path)//"L="//trim(int2str(L))
         tau_Q_directory = trim(L_directory)//"/"//"tau_Q="//trim(int2str(tau_Q))
@@ -105,7 +105,7 @@ module dynamics_mod
         real(dp), dimension(:,:,:,:), intent(inout) :: phi
         real(dp), intent(in) :: temperature
 
-        integer  :: ix, iy, iz, id
+        integer(i4)  :: ix, iy, iz, id
         real(dp) :: Delta_S
         real(dp) :: phi_p
         real(dp) :: beta
@@ -152,7 +152,7 @@ module dynamics_mod
 
         real(dp), dimension(:,:,:,:), intent(in) :: phi
 
-        integer :: ix, iy, iz
+        integer(i4) :: ix, iy, iz
         real(dp) :: W1, W2, W3, W4, W5, W6
 
         Energy_density   = 0.0_dp
@@ -188,11 +188,11 @@ module dynamics_mod
         use observables_mod
 
         real(dp), dimension(:,:,:,:), intent(inout) :: phi
-        integer, intent(in) :: N_thermalization, N_measurements, N_skip
+        integer(i4), intent(in) :: N_thermalization, N_measurements, N_skip
         real(dp), dimension(:), intent(in) :: temperature
 
         character(100):: L_directory, temperature_directory, filepath
-        integer :: i_temp,i
+        integer(i4) :: i_temp,i
 
         L_directory = trim(path)//"L="//trim(int2str(L))
 
@@ -224,7 +224,7 @@ module dynamics_mod
 
         real(dp), dimension(:,:,:,:), intent(inout) :: phi
         real(dp), intent(in) :: phi_p
-        integer, intent(in)  :: ix,iy,iz,id
+        integer(i4), intent(in)  :: ix,iy,iz,id
 
         real(dp) :: phi_old
 

@@ -1,6 +1,6 @@
 module local_update_algorithms_mod
 
-    use precision_mod
+    use iso_fortran_env, only : dp => real64, i4 => int32
 
     implicit none
 
@@ -63,7 +63,7 @@ subroutine heatbath(phi,idx,idy,idz,id,beta)
     REAL(dp) :: phi_old
     real(dp) :: Z1, Z2, y_max
 
-    integer :: i
+    integer(i4) :: i
 
     phi_old = phi(idx,idy,idz,id)
 

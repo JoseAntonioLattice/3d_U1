@@ -4,11 +4,13 @@ subroutine create_files()
     use check_files_directories_mod
     use arrays_mod, only : temperature
 
+    use iso_fortran_env, only: i4 => real32
+
     implicit none
 
-    integer :: i
+    integer(i4) :: i
     logical :: file_exists
-    integer :: io
+    integer(i4) :: io, inunit
 
 
     character(100) :: L_directory
@@ -39,11 +41,11 @@ subroutine create_files()
     do i = -tau_Q, tau_Q
         filepath = trim(tau_Q_directory)//"/"//trim(algorithm_id)//"_t="//trim(int2str(i))//".dat"
         call check_file(trim(filepath),file_exists)
-        open(unit = 100, file = trim(filepath))
-        read(100,*, iostat = io); close(100)
-        open(unit = 100, file = trim(filepath))
-        if(io<0) write(100,*) temperature(i),'#temperature'
-        close(100)
+        open(newunit = inunit, file = trim(filepath))
+        read(inunit,*, iostat = io); close(inunit)
+        open(newunit = inunit, file = trim(filepath))
+        if(io<0) write(inunit,*) temperature(i),'#temperature'
+        close(inunit)
     end do
 
 end subroutine create_files

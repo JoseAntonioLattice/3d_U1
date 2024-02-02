@@ -1,6 +1,6 @@
 module arrays_mod
 
-    use precision_mod
+    use iso_fortran_env, only : dp => real64
 
     implicit none
 
