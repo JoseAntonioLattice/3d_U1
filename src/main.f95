@@ -12,7 +12,7 @@ program U1_3d_out_eq
     call read_input()
     call set_memory()
     call set_periodic_bounds(L)
-    temperature = linear_cooling(Ti,tau_Q)
+    temperature = inverse_cooling(Ti,tau_Q)
     call create_files()
     call out_of_equilibrium(phi,temperature,N_thermalization,N_measurements)
 

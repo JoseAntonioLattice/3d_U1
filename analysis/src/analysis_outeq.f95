@@ -12,13 +12,13 @@ program analysis
     real(dp) :: energy_density, sum_eden, sumsq_eden, err_eden
     real(dp) :: monopole_density, sum_monoden, sumsq_monoden, err_monoden
 
-    integer :: L = 8
+    integer :: L = 20
     integer :: tau_Q = 1024
     integer :: N_measurements = 100
 
     integer :: i, i_tau, i_temp
 
-    character(*), parameter :: path = '/home/jose/Documents/doctorado/3d_U1_gauge_outeq/data/'
+    character(*), parameter :: path = '/home/estudiante/Documents/doctorado/3dU1/data/'
     character(100) :: L_directory
     character(100) :: tau_Q_directory
     character(100) :: temperature_directory
@@ -39,7 +39,7 @@ contains
 
         call getvec(temp, trim(path)//'/temperatures.dat')
 
-        open(unit = 666, file = trim(path)//'L='//trim(int2str(L))//'_heatbath.dat')
+        open(unit = 666, file = trim(path)//'L='//trim(int2str(L))//'_metropolis.dat')
 
         do i_temp = 1, size(temp)
             temperature_directory = trim(L_directory)//'/T='//trim(real2str(temp(i_temp)))
@@ -59,8 +59,8 @@ contains
                 sumsq_monoden = sumsq_monoden + monopole_density**2
             end do
             close(100)
-        call std_err(sum_eden, sumsq_eden,N_measurements,energy_density,err_eden)
-        call std_err(sum_monoden, sumsq_monoden,N_measurements,monopole_density, err_monoden)
+        call std_err_scalar(sum_eden, sumsq_eden,N_measurements,energy_density,err_eden)
+        call std_err_scalar(sum_monoden, sumsq_monoden,N_measurements,monopole_density, err_monoden)
 
         write(*,*)   temp(i_temp), energy_density,err_eden, monopole_density, err_monoden
         write(666,*) temp(i_temp), energy_density,err_eden, monopole_density, err_monoden
@@ -77,14 +77,14 @@ contains
 
     print*, tau_Q_directory
 
-    measurementsfile = '/home/jose/Documents/doctorado/3d_U1_gauge_outeq/analysis/L='&
-                       //trim(int2str(L))//'_tau_Q='//trim(int2str(tau_Q))//'_heatbath.dat'
+    measurementsfile = '/home/estudiante/Documents/doctorado/3dU1/analysis/L='&
+                       //trim(int2str(L))//'_tau_Q='//trim(int2str(tau_Q))//'_metropolis.dat'
     print*, measurementsfile
     open(unit = 666, file = measurementsfile)
 
     do i_tau = -tau_Q, tau_Q
 
-        filepath = trim(tau_Q_directory)//"/"//'heatbath_t='//trim(int2str(i_tau))//'.dat'
+        filepath = trim(tau_Q_directory)//"/"//'metropolis_t='//trim(int2str(i_tau))//'.dat'
         !print*,filepath
         open(unit = 100, file = trim(filepath))
 
@@ -102,8 +102,8 @@ contains
         end do
 
 
-        call std_err(sum_eden, sumsq_eden,N_measurements,energy_density,err_eden)
-        call std_err(sum_monoden, sumsq_monoden,N_measurements,monopole_density, err_monoden)
+        call std_err_scalar(sum_eden, sumsq_eden,N_measurements,energy_density,err_eden)
+        call std_err_scalar(sum_monoden, sumsq_monoden,N_measurements,monopole_density, err_monoden)
 
         write(*,*) i_tau, energy_density,err_eden, monopole_density, err_monoden
         write(666,*) temperature, energy_density,err_eden, monopole_density, err_monoden
